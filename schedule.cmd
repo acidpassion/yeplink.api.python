@@ -1,0 +1,1 @@
+C:\apps\Python36\python C:\apps\lotapp\test.py

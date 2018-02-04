@@ -1,0 +1,4 @@
+selenium
+pymongo
+bs4
+flask-cors
