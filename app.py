@@ -14,12 +14,12 @@ CORS(app)
 client=MongoClient("localhost", 27017)
 db=client.lotapp
 
-class Encoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, ObjectId):
-            return str(obj)
-        else:
-            return obj
+
+
+@app.route('/test', methods=['GET','POST'])
+def test():
+    return 'api is running'
+
 
 @app.route('/games', methods=['GET','POST'])
 def get_games():
