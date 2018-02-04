@@ -97,7 +97,7 @@ logger.info("Initiating phantomjs")
 driver_caps = init_phantomjs_driver_caps(service_args=service_args)
 
 if os.__contains__('Linux'):
-    driver = webdriver.PhantomJS(executable_path="/home/packages/phantomjs-2.1.1-linux-x86_64/bin/phantomjs",desired_capabilities=driver_caps)
+    driver = webdriver.PhantomJS(executable_path="/opt/phantomjs",desired_capabilities=driver_caps)
 elif os.__contains__('Windows'):
     driver = webdriver.PhantomJS(executable_path="C:/apps/phantomjs/bin/phantomjs",desired_capabilities=driver_caps)
 else:
