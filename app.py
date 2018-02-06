@@ -39,7 +39,7 @@ def get_games():
             "$match": {
                 "$and": [{
 
-                    "date": today,
+                    "date": "2018-02-02",
                     "details.startHost": {
                         "$gte": filter["StartHostFrom"],
                         "$lte": filter["StartHostTo"]
