@@ -9,19 +9,19 @@ import bson
 from bson.codec_options import CodecOptions
 import collections
 
-app = Flask(__name__)
-CORS(app)
+application = Flask(__name__)
+CORS(application)
 client=MongoClient("localhost", 27017)
 db=client.lotapp
 
 
 
-@app.route('/test', methods=['GET','POST'])
+@application.route('/test', methods=['GET','POST'])
 def test():
     return 'api is running'
 
 
-@app.route('/games', methods=['GET','POST'])
+@application.route('/games', methods=['GET','POST'])
 def get_games():
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     filter = request.json
@@ -118,4 +118,4 @@ def get_games():
     return json.dumps(result, indent =4)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    application.run(host='0.0.0.0', port=5001)
