@@ -79,8 +79,8 @@ def init_phantomjs_driver_caps(*args, **kwargs):
 
     return caps
 
-# client = pymongo.MongoClient("112.74.57.41", 27017)
-client = pymongo.MongoClient("localhost", 27017)
+client = pymongo.MongoClient("112.74.57.41", 27017)
+# client = pymongo.MongoClient("localhost", 27017)
 db = client.lotapp
 # db.games.delete_many({})
 # db.asias.delete_many({})
@@ -142,7 +142,7 @@ def getAsia(game):
                                 asia.euroAsiaTotal = found.total
                     asias.append(asia)
             rownum += 1
-        db.Asia.delete_many({"gameId": game.gameId})
+        db.GameDetail.delete_many({"gameId": game.gameId})
         for item in asias:
             if item.startHost is None and item.nowHost is None and item.endHost is None:
                 continue
