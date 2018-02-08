@@ -93,7 +93,7 @@ for document in db.Filter.find():
             }
         }
     ]
-    print(query)
+
     result = db.Game.aggregate(query)
     print(list(result))
     # db.Result.insert_many(list(result))
