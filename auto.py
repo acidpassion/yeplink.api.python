@@ -69,6 +69,7 @@ for document in db.Filter.find():
             "fullname": {
                 "$concat": ["$type", " ", "$date", " ", "$time", " ", "$host", " VS ", "$guest"]
             },
+            "_id": 0,
             "company": "$details.company",
             "startHost": "$details.startHost",
             "startPanko": "$details.startPanko",
@@ -95,7 +96,7 @@ for document in db.Filter.find():
     ]
 
     result = db.Game.aggregate(query)
-    print(list(result))
+    print(json.dumps(list(result), indent=4, ensure_ascii=False))
     # db.Result.insert_many(list(result))
 
 
