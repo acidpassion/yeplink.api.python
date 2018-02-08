@@ -115,7 +115,7 @@ def get_games():
     ]
     result = list(db.Game.aggregate(pinelines))
 
-    return json.dumps(result, indent =4)
+    return json.dumps(list(result), indent=4,  ensure_ascii=False).encode("utf-8")
 
 if __name__ == '__main__':
     application.run()
