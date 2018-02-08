@@ -96,7 +96,7 @@ for document in db.Filter.find():
     ]
 
     result = db.Game.aggregate(query)
-    print(json.dumps(list(result), indent=4, ensure_ascii=False))
+    print(json.dumps(list(result), indent=4, encoding='utf-8', ensure_ascii=False))
     # db.Result.insert_many(list(result))
 
 
