@@ -2,7 +2,7 @@ import pymongo
 import json
 import datetime
 
-client = pymongo.MongoClient("localhost", 27017)
+client = pymongo.MongoClient("112.74.57.41", 27017)
 db = client.lotapp
 
 for document in db.Filter.find():
@@ -20,7 +20,7 @@ for document in db.Filter.find():
         "$match": {
             "$and": [{
 
-                "date": '2018-02-02',
+                "date": '2018-02-08',
                 "details.startHost": {
                     "$gte": filter["StartHostFrom"],
                     "$lte": filter["StartHostTo"]
