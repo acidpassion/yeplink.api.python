@@ -11,7 +11,7 @@ import collections
 
 application = Flask(__name__)
 CORS(application)
-client=MongoClient("localhost", 27017)
+client=MongoClient("localhost", 27017,  connect=False)
 db=client.lotapp
 
 
