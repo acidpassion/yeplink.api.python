@@ -22,9 +22,9 @@ def test():
 @application.route('/games/<string:filterID>', methods=['GET','POST'])
 def get_games(filterID):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
-    result = db.Result.find({"timestamp" : today, "filterID":filterID})
+    result = db.Result.find({"timestamp" : today, "filterID":filterID},{"_id": 0})
     print(result)
-    return dumps(list(result))
+    return json.dumps(list(result), indent=4, ensure_ascii=False)
 
 if __name__ == '__main__':
     application.run()
