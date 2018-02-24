@@ -23,7 +23,7 @@ for document in db.Filter.find():
         "$match": {
             "$and": [{
 
-                "date": '2018-02-08',
+                "date": today,
                 "details.startHost": {
                     "$gte": filter["StartHostFrom"],
                     "$lte": filter["StartHostTo"]
@@ -99,8 +99,9 @@ for document in db.Filter.find():
     ]
 
     result = db.Game.aggregate(query)
-    db.Result.delete_many({"filterID": filter['_id']})
+    db.Result.delete_many({"filterID": filter['_id'], "timestamp": today})
     data = []
+    print(filter)
     for item in result:
         print(item)
         data.append(item)
