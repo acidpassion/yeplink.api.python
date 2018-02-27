@@ -99,14 +99,15 @@ for document in db.Filter.find():
     ]
 
     result = db.Game.aggregate(query)
-    db.Result.delete_many({"filterID": filter['_id'], "timestamp": today})
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    db.Result.delete_many({"filterID": filter['_id'], "timestamp": timestamp})
     data = []
     print(filter)
     for item in result:
         print(item)
         data.append(item)
     if(len(data) >0):
-        db.Result.insert({"filterID": filter['_id'], "data": data, "timestamp": today})
+        db.Result.insert({"filterID": filter['_id'], "data": data, "date":today, "timestamp": timestamp})
 
     # print(json.dumps(list(result), indent=4,  ensure_ascii=False))
     # db.Result.insert(result)
