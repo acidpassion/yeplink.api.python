@@ -100,7 +100,7 @@ for document in db.Filter.find():
 
     result = db.Game.aggregate(query)
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    db.Result.delete_many({"filterID": filter['_id'], "timestamp": timestamp})
+    db.Result.delete_many({"filterID": filter['_id'], "date": today})
     data = []
     print(filter)
     for item in result:
