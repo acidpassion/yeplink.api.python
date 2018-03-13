@@ -22,7 +22,7 @@ def test():
 @application.route('/games/<string:filterID>', methods=['GET','POST'])
 def get_games(filterID):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
-    result = db.Result1.find({"date"
+    result = db.Result.find({"date"
                              "" : today, "filterID":filterID},{"_id": 0})
     print(result)
     return json.dumps(list(result), indent=4, ensure_ascii=False)
